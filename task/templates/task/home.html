@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <title>SpaceX API</title>
+    </head>
+
+    <body>
+        <h1>SpaceX Launch Data</h1>
+        
+        {% for dic in data %}
+            <p>
+                Flight Number : {{dic.flight_number}}<br>
+                Launch Date : {{dic.launch_date}}<br>
+                Rocket Name : {{dic.rocket_name}}<br>
+                {% if dic.mission_patch_link != None %}
+                    <img src="{{dic.mission_patch_link}}" height = 150 width = 150><br>
+                {% endif %}
+                <hr>
+
+            </p>
+        {% endfor %}
+    </body>
+</html>

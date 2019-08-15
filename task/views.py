@@ -19,15 +19,11 @@ def fetch(request):
         })
         
     """
-    Dumping to the JSON format with the DjangJSONEncoder
-
+    passing the list of dictionaries containing the data to the html template
+    so that it can be displayed on the home page
     """
-    s = json.dumps(
-    data,
-    sort_keys=True,
-    indent=1,
-    cls=DjangoJSONEncoder
-    )
-    return HttpResponse(s)
-
+    context = {
+        'data' : data,
+    }
+    return render(request, 'task/home.html', context)
 
